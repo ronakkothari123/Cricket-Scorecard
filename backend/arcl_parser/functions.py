@@ -1,7 +1,6 @@
 import requests
 from bs4 import BeautifulSoup
-from classes import Batsman, Bowler
-import json
+from .classes import Batsman, Bowler
 
 
 def get_text(row):
@@ -116,5 +115,4 @@ def parse(url):
 
         ret.append(HANDLER[f'{len(processed)}'](cleaned))
 
-    return json.dumps(
-        {'results': {"firstInnings": firstInnings, "secondInnings": ret}})
+    return {'results': {"firstInnings": firstInnings, "secondInnings": ret}}
