@@ -5,12 +5,12 @@ from django.db import models
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
 
-    runs = models.IntegerField()
-    matches = models.IntegerField()
-    innings = models.IntegerField()
-    batting_innings = models.IntegerField()
-    bowling_innings = models.IntegerField()
-    wickets = models.IntegerField()
-    overs = models.IntegerField()
-    bowling_runs = models.IntegerField()
+    runs = models.IntegerField(default=0)
+    matches = models.IntegerField(default=0)
+    innings = models.IntegerField(default=0)
+    batting_innings = models.IntegerField(default=0)
+    bowling_innings = models.IntegerField(default=0)
+    wickets = models.IntegerField(default=0)
+    overs = models.IntegerField(default=0)
+    bowling_runs = models.IntegerField(default=0)
 
