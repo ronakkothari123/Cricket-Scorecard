@@ -1,8 +1,7 @@
 from django.http import HttpResponse, JsonResponse
 from rest_framework import viewsets
-from .models import Game, ARCL
-from .serializers import GameSerializer, ARCLSerializer
-from rest_framework.decorators import action
+from .models import Game
+from .serializers import GameSerializer
 from arcl_parser.functions import parse
 from utils import parse_request
 
@@ -16,12 +15,10 @@ class GameViewSet(viewsets.ModelViewSet):
     queryset = Game.objects.all()
     serializer_class = GameSerializer
 
-
-class ARCLGameViewSet(viewsets.ModelViewSet):
-    queryset = ARCL.objects.all()
-    serializer_class = ARCLSerializer
-
     def create(self, request, *args, **kwargs):
         body = parse_request(request)
-        return JsonResponse(parse(body['url']))
+        if body['arcl']:
+            return JsonResponse(parse(body['url']))
+        super(GameViewSet, self).create(request, *args, **kwargs)
+
 
