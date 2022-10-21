@@ -32,9 +32,11 @@ def batting(row):
 
 def rate_wickets(row):
     ret = [{
-        "rate": float(row[1])
+        "rate": float(row[1]),
+        "type": "data"
     }, {
-        "wickets": int(row[6])
+        "wickets": int(row[6]),
+        "type": "data"
     }]
 
     return ret
@@ -42,9 +44,11 @@ def rate_wickets(row):
 
 def overs(row):
     ret = [{
-        "overs": row[1]
+        "overs": row[1],
+        "type": "data"
     }, {
-        "total": int(row[6])
+        "total": int(row[6]),
+        "type": "data"
     }]
 
     return ret
