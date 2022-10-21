@@ -30,7 +30,8 @@ class Batsman(object):
             "sixes": self.sixes,
             "fours": self.fours,
             "runs": self.runs,
-            "balls": self.balls
+            "balls": self.balls,
+            "type": "batsman"
         }
 
     def json(self):
@@ -55,7 +56,8 @@ class Bowler(object):
             "wickets": self.wickets,
             "wides": self.wides,
             "noBalls": self.no_balls,
-            "maidens": self.maidens
+            "maidens": self.maidens,
+            "type": "bowler"
         }
 
     def json(self):
