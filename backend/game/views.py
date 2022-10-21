@@ -17,8 +17,8 @@ class GameViewSet(viewsets.ModelViewSet):
 
     def create(self, request, *args, **kwargs):
         body = parse_request(request)
-        if body['arcl']:
+        if "arcl" in body.keys():
             return JsonResponse(parse(body['url']))
-        super(GameViewSet, self).create(request, *args, **kwargs)
+        return super(GameViewSet, self).create(request, *args, **kwargs)
 
 
