@@ -1,5 +1,6 @@
 from django.db import models
 from django.db.models import JSONField
+from users.models import Profile
 
 
 class Game(models.Model):
@@ -9,6 +10,8 @@ class Game(models.Model):
     bowlers = JSONField(default=None, null=True)
     extra_data = JSONField(default=None, null=True)
 
-    def __str__(self):
-        return f'Game #{self.id}: {self.league_type}'
+    creator = models.ForeignKey(Profile, on_delete=models.CASCADE, default=None, null=True)
 
+
+def __str__(self):
+    return f'Game #{self.id}: {self.league_type}'
