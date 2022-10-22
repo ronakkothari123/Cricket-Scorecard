@@ -2,6 +2,7 @@ from django.contrib.auth.models import User
 from django.db import models
 from django.db.models.signals import post_save
 from django.dispatch import receiver
+from teams.models import Team
 
 
 class Profile(models.Model):
@@ -18,6 +19,7 @@ class Profile(models.Model):
     wickets = models.IntegerField(default=0)
     overs = models.IntegerField(default=0)
     bowling_runs = models.IntegerField(default=0)
+    teams = models.ManyToManyField(Team, default=None, null=True)
 
     def __str__(self):
         return f'{self.user.username}: {self.runs} ({self.balls})'

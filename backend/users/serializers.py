@@ -24,7 +24,7 @@ class ProfileSerializer(serializers.HyperlinkedModelSerializer):
         model = Profile
         fields = (
             'user', 'pfp_url', 'runs', 'balls', 'matches', 'innings', 'batting_innings', 'bowling_innings', 'wickets',
-            'overs', 'bowling_runs')
+            'overs', 'bowling_runs', 'teams')
 
 
 MigrationWriter.register_serializer(Profile, MigrationProfileSerializer)
