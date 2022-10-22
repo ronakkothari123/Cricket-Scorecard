@@ -19,7 +19,7 @@ class Profile(models.Model):
     wickets = models.IntegerField(default=0)
     overs = models.IntegerField(default=0)
     bowling_runs = models.IntegerField(default=0)
-    teams = models.ManyToManyField(Team, default=None, null=True)
+    teams = models.ManyToManyField(Team, default=None)
 
     def __str__(self):
         return f'{self.user.username}: {self.runs} ({self.balls})'
