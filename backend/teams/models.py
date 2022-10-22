@@ -11,4 +11,4 @@ class Team(models.Model):
     no_result = models.IntegerField(default=0)
 
     def __str__(self):
-        return f'{self.wins}-{self.losses}-{self.draws}'
+        return f'{self.name} ({self.league_type}): {self.wins}-{self.losses}-{self.draws}'
