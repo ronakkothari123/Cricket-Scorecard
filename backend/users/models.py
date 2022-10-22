@@ -4,6 +4,8 @@ from django.db import models
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
+    pfp_url = models.CharField(max_length=500,
+                               default="https://variety.com/wp-content/uploads/2021/07/Rick-Astley-Never-Gonna-Give-You-Up.png?w=681&h=383&crop=1")  # Rick Astley image as default
 
     runs = models.IntegerField(default=0)
     balls = models.IntegerField(default=0)
