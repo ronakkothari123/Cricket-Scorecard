@@ -14,9 +14,17 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
         return User.objects.create_user(**validated_data)
 
 
-class ProfileSerializer(BaseSerializer):
+class MigrationProfileSerializer(BaseSerializer):
     def serialize(self):
         return repr(self.value), {}
 
 
-MigrationWriter.register_serializer(Profile, ProfileSerializer)
+class ProfileSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = Profile
+        fields = (
+            'user', 'pfp_url', 'runs', 'balls', 'matches', 'innings', 'batting_innings', 'bowling_innings', 'wickets',
+            'overs', 'bowling_runs', 'teams')
+
+
+MigrationWriter.register_serializer(Profile, MigrationProfileSerializer)

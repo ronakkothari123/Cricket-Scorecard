@@ -20,6 +20,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    "teams.apps.TeamsConfig",
     "users.apps.UsersConfig",
     "game.apps.GameConfig",
     "api.apps.ApiConfig",
